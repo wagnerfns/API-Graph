@@ -4,7 +4,7 @@ class Vertex:
 		self.neighbors = list() #vertices ligados a esse vertice
 		self.discovery = 0
 		self.finish = 0
-		self.color = 'gray'
+		self.color = 'white'
 	
 	def add_adjacency(self, v):
 		if v not in self.neighbors:
@@ -96,66 +96,89 @@ class Graph:
 		else:
 			print("Not is eulerian")
 
-	def print_graph(self, verbose=None):
+
+	def _dfs(self, vertex):
+		global time
+		vertex.color = 'gray'
+		vertex.discovery = time
+		time += 1
+
+		for i in vertex.neighbors:
+			if(self.dictionary_vertex[i].color == 'white'):
+				self._dfs(self.dictionary_vertex[i])
+
+		vertex.color = 'black'
+		vertex.finish = time
+		time += 1
+
+	def dfs(self, vertex):
+		global time
+
+		time = 1
+		self._dfs(vertex)
+
+	'''
+	If print graph equal (True), print a matrix, if graph equal (False) print list adjacency
+	if print way graph dfs equal (False and True) 
+	'''
+	def print_graph(self, verbose=None, dfs = False):
 		if(verbose):
 			for i in range(len(self.dictionary_vertex)):
 				print(f'{[i]} -> {self.adjacency[i]}')
 		else:
-			for key in sorted(list(self.dictionary_vertex.keys())):
-				print(f"{key} - {self.dictionary_vertex[key].neighbors}")
-            	#print(key + str(self.dictionary_vertex[key].neighbors) + " " + str(self.dictionary_vertex[key].discovery))
+			if not dfs:
+				for key in sorted(list(self.dictionary_vertex.keys())):
+					print(f"{key} - {self.dictionary_vertex[key].neighbors}")
+			else:
+				for key in sorted(list(self.dictionary_vertex.keys())):
+					print(f"{key} - {self.dictionary_vertex[key].neighbors} - {self.dictionary_vertex[key].discovery}")
 
-			
 
 #graph = Graph(True, True)  # matriz direcionada
 #graph = Graph(False, True) # matriz nao direcionada
 graph = Graph(False, False) # list adjacency not directed
 #graph = Graph(True, False)  # list adjacency directed
 
-a = Vertex(0)
-b = Vertex(1)
-#c = Vertex(2)
-#d = Vertex(3)
-#e = Vertex(4)
-#f = Vertex(5)
+a = Vertex(1)
+b = Vertex(2)
+c = Vertex(3)
+d = Vertex(4)
+e = Vertex(5)
+f = Vertex(6)
+g = Vertex(7)
+h = Vertex(8)
+
+
 
 graph.add_vertex(a)
 graph.add_vertex(b)
-#graph.add_vertex(c)
-#graph.add_vertex(d)
-#graph.add_vertex(e)
-#graph.add_vertex(f)
+graph.add_vertex(c)
+graph.add_vertex(d)
+graph.add_vertex(e)
+graph.add_vertex(f)
+graph.add_vertex(g)
+graph.add_vertex(h)
 
-graph.created_matrix()
 
-###
-#print('Matriz criada')
-#graph.print_graph(True)
-###
-#print('Lista de adjacencia')
+
+graph.add_edge(a, b)
+graph.add_edge(a, h)
+graph.add_edge(a, f)
+graph.add_edge(a, g)
+graph.add_edge(b, h)
+graph.add_edge(c, f)
+graph.add_edge(d, c)
+graph.add_edge(e, d)
+graph.add_edge(f, g)
+graph.add_edge(g, h)
+
+
+
+print("Lista de adjacencia")
 #graph.print_graph(False)
 ###
 
-###
-graph.add_edge(a, a)
-graph.add_edge(b, b)
-#graph.add_edge(c, c)
-#graph.add_edge(d, d)
+graph.dfs(e)
 
-graph.add_edge(a, b)
-#graph.add_edge(a, c)
-#graph.add_edge(d, e)
-#graph.add_edge(d, f)
-#graph.add_edge(e, f)
-
-
-###
-
-###
-#print('Matriz com as adjacencias')
-#graph.print_graph(True)
-print("Lista de adjacencia")
 graph.print_graph(False)
-###
 
-graph.eulerian()
