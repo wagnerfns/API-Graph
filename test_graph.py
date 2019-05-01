@@ -10,15 +10,15 @@ class Vertex:
 		if v not in self.neighbors:
 			self.neighbors.append(v) #adiciona um vizinho ao vertice
 			self.neighbors.sort() #ordena
+	
 	#def search_vertex(self, index):
 	#	print(f"Vertex: {index} - {self.dictionary_vertex}")
 
 class Graph:
-	def __init__(self, directed=None, verbose=None):
+	def __init__(self, verbose=None, directed=None):
 		self.adjacency = [] # cria lista para adjacencia
 		self.directed = directed #flag para saber se eh direcioando ou nao
 		self.adjacency_type = verbose # flag para saber eh lista ou matriz
-		#self.quantity = quantity #quantidade de vertices
 		self.dictionary_vertex = {}
 		
 		
@@ -59,12 +59,15 @@ class Graph:
 				else:
 					self.adjacency[vertex1.name][vertex2.name] = 1
 					self.adjacency[vertex2.name][vertex1.name] = 1
+				return(True)
 			else: # created list
 				if(self.directed): #if directed or not directed
 					self.dictionary_vertex[vertex1.name].add_adjacency(vertex2.name)
 				else:
 					self.dictionary_vertex[vertex1.name].add_adjacency(vertex2.name)
 					self.dictionary_vertex[vertex2.name].add_adjacency(vertex1.name)
+				return(True)
+
 	'''
 	First verify if is, matriz or adjacency list, after verify quantity number of vertex even and odd.
 	if the number of vertex is equal to the number of vertex even, is eulerian closed,
@@ -135,12 +138,13 @@ class Graph:
 
 
 #graph = Graph(True, True)  # matriz direcionada
-#graph = Graph(False, True) # matriz nao direcionada
+#graph = Graph(True, False) # matriz nao direcionada
 graph = Graph(False, False) # list adjacency not directed
-#graph = Graph(True, False)  # list adjacency directed
-
+#graph = Graph(False, True)  # list adjacency directed
+'''
 a = Vertex(1)
 b = Vertex(2)
+
 c = Vertex(3)
 d = Vertex(4)
 e = Vertex(5)
@@ -173,12 +177,13 @@ graph.add_edge(f, g)
 graph.add_edge(g, h)
 
 
+'''
 
 print("Lista de adjacencia")
 #graph.print_graph(False)
 ###
 
-graph.dfs(e)
+#graph.dfs(e)
 
 graph.print_graph(False)
 
