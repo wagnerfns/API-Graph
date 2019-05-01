@@ -10,6 +10,8 @@ class Vertex:
 		if v not in self.neighbors:
 			self.neighbors.append(v) #adiciona um vizinho ao vertice
 			self.neighbors.sort() #ordena
+	#def search_vertex(self, index):
+	#	print(f"Vertex: {index} - {self.dictionary_vertex}")
 
 class Graph:
 	def __init__(self, directed=None, verbose=None):
@@ -18,43 +20,26 @@ class Graph:
 		self.adjacency_type = verbose # flag para saber eh lista ou matriz
 		#self.quantity = quantity #quantidade de vertices
 		self.dictionary_vertex = {}
-		'''
-		If choice is list created a list or a matrix
-		'''
-		'''
-
-		if(self.adjacency_type):
-			for i in range(self.quantity):
-				list_vertex=[]
-				for i in range(self.quantity):
-					list_vertex.append(0)
-				self.adjacency.append(list_vertex)
-		else:
-			for i in range(self.quantity):
-				self.adjacency.append([])
-						
-		'''
-	#dictionary_vertex = {}
+		
+		
 	time = 0
-
+	
+	'''
+	If choice is list created a list or a matrix
+	'''
 	def created_matrix(self):
 		vertex_quantity = len(self.dictionary_vertex)
-
 		for i in range(vertex_quantity):
 			list_v = []
 			for i in range(vertex_quantity):
 
 				list_v.append(0)
-				self.adjacency.append(list_v)
+			self.adjacency.append(list_v)
 				
 	def add_vertex(self, vertex):
 		#verifica se eh um vertice e se ja nao foi um  vertice inserido
 		if isinstance(vertex, Vertex) and vertex.name not in self.dictionary_vertex:
 			self.dictionary_vertex[vertex.name] = vertex
-
-
-			#teste
-			created_matrix()
 
 			return(True)
 		else: # return false if vertex insured
@@ -95,8 +80,10 @@ class Graph:
 
 			
 
-graph = Graph(False, True)
-
+#graph = Graph(True, True)  # matriz direcionada
+#graph = Graph(False, True) # matriz nao direcionada
+graph = Graph(False, False) # list adjacency not directed
+#Graph = Graph(True, False)  # list adjacency directed
 a = Vertex(0)
 b = Vertex(1)
 c = Vertex(2)
@@ -110,12 +97,24 @@ graph.add_vertex(c)
 graph.add_vertex(d)
 graph.add_vertex(e)
 
+graph.created_matrix()
+
+###
+#print('Matriz criada')
+#graph.print_graph(True)
+###
+print('Lista encadeada')
+graph.print_graph(False)
+###
+
+###
 graph.add_edge(a, b)
 graph.add_edge(a, c)
 graph.add_edge(b, c)
 graph.add_edge(c, d)
 graph.add_edge(e, a)
+###
 
-
+print('Matriz com as adjacencias')
 graph.print_graph(True)
 
