@@ -4,7 +4,7 @@ language: python
 python:
  - "3.6"
 
-sudo: required
+#sudo: required
 
 # install dependencies
 install:
@@ -16,7 +16,7 @@ install:
 # run tests
 script:
  - pytest test/test_core.py
- - coverage run -m unittest test/test_core.py
+ #- coverage run -m unittest test/test_core.py
  - coverage run -m pytest test/test_core.py
  - coverage report
 after_success:
