@@ -1,9 +1,0 @@
-[
-  "test_core.py::TestMethods::test_add_vertex_list_directed",
-  "test_core.py::TestMethods::test_add_vertex_list_not_directed",
-  "test_core.py::TestMethods::test_add_vertex_matrix_directed",
-  "test_core.py::TestMethods::test_add_vertex_matrix_not_directed",
-  "test_core.py::TestMethods::test_eulerian_matrix_close",
-  "test_core.py::TestMethods::test_eulerian_matrix_open",
-  "test_core.py::TestMethods::test_not_eulerian_matrix"
-]
