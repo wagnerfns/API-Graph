@@ -8,18 +8,20 @@ python:
 
 # install dependencies
 install:
- - pip install -U pytest
- - pip install unittest2
- - pip install coverage
- - pip install python-coveralls
+ #- pip install -U pytest
+ #- pip install unittest2
+ #- pip install coverage
+ #- pip install python-coveralls
 
 before_script:
- - cd graph/
+ - pip install -r requirements.txt --use-mirrors
+ #- cd graph/
 # run tests
 script:
- - pytest test_core.py
+ - py.test graph/test/test_core.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
+ #- pytest test_core.py
  #- coverage run -m unittest test/test_core.py
- - coverage run -m pytest test_core.py
+ #- coverage run -m pytest test_core.py
  #- coverage report
  
 after_success:
