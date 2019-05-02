@@ -14,14 +14,14 @@ install:
  - pip install python-coveralls
 
 before_script:
- - cd -
+ - cd graph/
 # run tests
 script:
- #- pytest test_core.py
+ - pytest test_core.py
  #- coverage run -m unittest test/test_core.py
- #- coverage run -m pytest test_core.py
+ - coverage run -m pytest test_core.py
  #- coverage report
- - py.test test/test_core.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
+ 
 after_success:
  - coveralls
   
