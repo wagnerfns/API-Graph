@@ -2,7 +2,7 @@ language: python
 
 # run python
 python:
-	- "3.6"
+ - "3.6"
 
 sudo: required
 
@@ -18,7 +18,7 @@ install:
  - coverage run -m pytest test/test_core.py
 
 after_success:
-  - coveralls
+ - coveralls
   
 notifications:
-	email: false
+ email: false
