@@ -35,7 +35,8 @@ class Graph:
 
 				list_v.append(0)
 			self.adjacency.append(list_v)
-				
+	'''
+	'''		
 	def add_vertex(self, vertex):
 		#verifica se eh um vertice e se ja nao foi um  vertice inserido
 		if isinstance(vertex, Vertex) and vertex.name not in self.dictionary_vertex:
@@ -91,15 +92,20 @@ class Graph:
 					eulerian += 1
 
 		if(len(self.dictionary_vertex) == eulerian):
-			print("Eulerian closed")
-			return(True)
+			prt = "Eulerian closed"
+			print(prt)
+			return(prt)
 		elif((len(self.dictionary_vertex) - 2) == eulerian):
-			print("Eulerian open")
-			return(True)
+			prt = "Eulerian open"
+			print(prt)
+			return(prt)
 		else:
-			print("Not is eulerian")
+			prt = "Not is eulerian"
+			print(prt)
+			return(prt)
 
-
+	'''
+	'''
 	def _dfs(self, vertex):
 		global time
 		vertex.color = 'gray'
