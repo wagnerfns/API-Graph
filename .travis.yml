@@ -1,0 +1,24 @@
+language: python
+
+# run python
+python:
+	- "3.6"
+
+sudo: required
+
+# install dependencies
+install:
+ - pip install -U pytest
+ - pip install unittest2
+ - pip install coverage
+ - pip install python-coveralls
+
+# run tests
+ - pytest
+ - coverage run -m pytest test/test_core.py
+
+after_success:
+  - coveralls
+  
+notifications:
+	email: false
