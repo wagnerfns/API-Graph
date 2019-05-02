@@ -16,7 +16,6 @@ install:
 # run tests
 script:
  - pytest
- - coverage run -m pytest test/test_core.py
 
 after_success:
  - coveralls
