@@ -15,8 +15,10 @@ install:
 
 # run tests
 script:
- - pytest
-
+ - pytest test/test_core.py
+ - coverage run -m unittest test/test_core.py
+ - coverage run -m pytest test/test_core.py
+ - coverage report
 after_success:
  - coveralls
   
