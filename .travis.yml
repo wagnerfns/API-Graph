@@ -9,21 +9,10 @@ sudo: required
 # install dependencies
 install:
  - pip install coveralls
- #- pip install -U pytest
- #- pip install unittest2
- #- pip install coverage
- #- pip install python-coveralls
-
-before_script:
- #- pip install -r requirements.txt
- #- cd graph/
+ 
 # run tests
 script:
  - coverage run --source=graph setup.py test
- 
- #- pytest test_core.py
- #- coverage run -m unittest test/test_core.py
- #- coverage run -m pytest test_core.py
  #- coverage report
  
 after_success:
