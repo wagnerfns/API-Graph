@@ -1,0 +1,11 @@
+[
+  "test/test_core.py::TestMethods::test_add_vertex_list_directed",
+  "test/test_core.py::TestMethods::test_add_vertex_list_not_directed",
+  "test/test_core.py::TestMethods::test_add_vertex_matrix_directed",
+  "test/test_core.py::TestMethods::test_add_vertex_matrix_not_directed",
+  "test/test_core.py::TestMethods::test_bfs_list_not_directed",
+  "test/test_core.py::TestMethods::test_dfs_list_not_directed",
+  "test/test_core.py::TestMethods::test_eulerian_matrix",
+  "test/test_core.py::TestMethods::test_eulerian_matrix_open",
+  "test/test_core.py::TestMethods::test_not_eulerian_matrix"
+]
