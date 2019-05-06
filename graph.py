@@ -4,6 +4,7 @@ class Vertex:
 		self.neighbors = list() #vertices ligados a esse vertice
 		self.discovery = 0
 		self.finish = 0
+		self.distance = 9999
 		self.color = 'white'
 	
 	def add_adjacency(self, v):
@@ -92,7 +93,7 @@ class Graph:
 					eulerian += 1
 
 		if(len(self.dictionary_vertex) == eulerian):
-			prt = "Eulerian closed"
+			prt = "Is Eulerian"
 			print(prt)
 			return(prt)
 		elif((len(self.dictionary_vertex) - 2) == eulerian):
@@ -126,70 +127,51 @@ class Graph:
 		time = 1
 		self._dfs(vertex)
 
+		return(True)
+	def bfs(self, vertex):
+		queue = list()
+		vertex.distance = 0
+		vertex.color = 'gray'
+
+		for v in vertex.neighbors:
+			self.dictionary_vertex[v].distance = vertex.distance + 1
+			queue.append(v)
+
+		while(len(queue) > 0):
+			u = queue.pop(0)
+			node_u = self.dictionary_vertex[u]
+			node_u.color = 'gray' #paint black
+
+			for v in node_u.neighbors:
+				node_v = self.dictionary_vertex[v]
+				if(node_v.color == 'white'):
+					queue.append(v)
+					if(node_v.distance > node_u.distance + 1):
+						node_v.distance = node_u.distance + 1
+		return(True)
+			
 	'''
 	If print graph equal (True), print a matrix, if graph equal (False) print list adjacency
-	if print way graph dfs equal (False and True) 
+	if print way graph dfs equal (False and True)
+	if print way graph bfs equal (False and False)
 	'''
-	def print_graph(self, verbose=None, dfs = False):
+
+	def print_graph(self, verbose=None, dfs = None):
 		if(verbose):
 			for i in range(len(self.dictionary_vertex)):
 				print(f'{[i]} -> {self.adjacency[i]}')
-		else:
-			if not dfs:
-				for key in sorted(list(self.dictionary_vertex.keys())):
+		elif(verbose == False and dfs == None):
+			for key in sorted(list(self.dictionary_vertex.keys())):
 					print(f"{key} - {self.dictionary_vertex[key].neighbors}")
-			else:
-				for key in sorted(list(self.dictionary_vertex.keys())):
-					print(f"{key} - {self.dictionary_vertex[key].neighbors} - {self.dictionary_vertex[key].discovery}")
+		if(dfs == True):
+			for key in sorted(list(self.dictionary_vertex.keys())):
+				print(f"{key} - {self.dictionary_vertex[key].neighbors} - {self.dictionary_vertex[key].discovery}")
+		else:
+			for key in sorted(list(self.dictionary_vertex.keys())):
+				print(f"{key} - {self.dictionary_vertex[key].neighbors} - {self.dictionary_vertex[key].distance}")
 
 
 #graph = Graph(True, True)  # matriz direcionada
 #graph = Graph(True, False) # matriz nao direcionada
-graph = Graph(False, False) # list adjacency not directed
+#graph = Graph(False, False) # list adjacency not directed
 #graph = Graph(False, True)  # list adjacency directed
-'''
-a = Vertex(1)
-b = Vertex(2)
-
-c = Vertex(3)
-d = Vertex(4)
-e = Vertex(5)
-f = Vertex(6)
-g = Vertex(7)
-h = Vertex(8)
-
-
-
-graph.add_vertex(a)
-graph.add_vertex(b)
-graph.add_vertex(c)
-graph.add_vertex(d)
-graph.add_vertex(e)
-graph.add_vertex(f)
-graph.add_vertex(g)
-graph.add_vertex(h)
-
-
-
-graph.add_edge(a, b)
-graph.add_edge(a, h)
-graph.add_edge(a, f)
-graph.add_edge(a, g)
-graph.add_edge(b, h)
-graph.add_edge(c, f)
-graph.add_edge(d, c)
-graph.add_edge(e, d)
-graph.add_edge(f, g)
-graph.add_edge(g, h)
-
-
-'''
-
-print("Lista de adjacencia")
-#graph.print_graph(False)
-###
-
-#graph.dfs(e)
-
-graph.print_graph(False)
-
