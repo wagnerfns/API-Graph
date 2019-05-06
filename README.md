@@ -20,6 +20,7 @@ Currently this project has these methods of graphs:
 - List adjacency not directed
 - Eulerian open or closed
 - Depth First Search(DFS)
+- Breadth First Search(BFS)
 - ?
 
 ## Dependencies
