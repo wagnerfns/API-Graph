@@ -21,14 +21,13 @@ class Graph:
 		self.directed = directed #flag para saber se eh direcioando ou nao
 		self.adjacency_type = verbose # flag para saber eh lista ou matriz
 		self.dictionary_vertex = {}
-		
-		
+			
 	time = 0
 	
-	'''
-	If choice is list created a list or a matrix
-	'''
 	def created_matrix(self):
+		'''Create an array
+
+		An array is created from how many vertices were generated and all are stored in a dictionary.'''
 		vertex_quantity = len(self.dictionary_vertex)
 		for i in range(vertex_quantity):
 			list_v = []
@@ -36,23 +35,25 @@ class Graph:
 
 				list_v.append(0)
 			self.adjacency.append(list_v)
-	'''
-	'''		
+		
 	def add_vertex(self, vertex):
-		#verifica se eh um vertice e se ja nao foi um  vertice inserido
+		'''Create a vertex
+
+		First, check if it is a vertex and if it is not already a vertex inserted.
+		If it was not inserted  then add a vertex and return True. if the vertex has already been inserted return False'''
 		if isinstance(vertex, Vertex) and vertex.name not in self.dictionary_vertex:
 			self.dictionary_vertex[vertex.name] = vertex
-
 			return(True)
-		else: # return false if vertex insured
+		else:
 			return(False)
 
-	
-	'''
-	First verify if is a object after if is directed and 
-	created a list or matrix, if matrix created a matrix with size vertex
-	'''
 	def add_edge(self, vertex1, vertex2):
+		'''Creating an edge:
+
+		First check if it is an object, after being directed or not directed. 
+		Created a list or matrix, if it is chosen an array will be created with the amount of vertices inserted (1 ... n)
+		then it is necessary to enter values in that range.
+		'''
 		if(isinstance(vertex1, Vertex)) and (isinstance(vertex2, Vertex)): # verify if created vertex
 			if(self.adjacency_type):# created matrix
 								
@@ -70,13 +71,14 @@ class Graph:
 					self.dictionary_vertex[vertex2.name].add_adjacency(vertex1.name)
 				return(True)
 
-	'''
-	First verify if is, matriz or adjacency list, after verify quantity number of vertex even and odd.
-	if the number of vertex is equal to the number of vertex even, is eulerian closed,
-	if the number of vertex less 2 is equal to the number of vertex even, is eulerian open,  
-	if none other, isn't eulerian
-	'''
 	def eulerian(self):
+		'''Verify if is Eulerian:
+
+		First verify if is an array or adjacency list, after verify quantity number of vertex even and odd.
+		If the number of vertex is equal to the number of vertex even, is eulerian.
+		If the number of vertex less 2 is equal to the number of vertex even, is eulerian open.
+		If none other, isn't eulerian
+		'''
 		eulerian = 0
 		if(self.adjacency_type):
 			for i in range(len(self.dictionary_vertex)):
@@ -105,8 +107,6 @@ class Graph:
 			print(prt)
 			return(prt)
 
-	'''
-	'''
 	def _dfs(self, vertex):
 		global time
 		vertex.color = 'gray'
@@ -122,13 +122,27 @@ class Graph:
 		time += 1
 
 	def dfs(self, vertex):
+		'''Depth-First Search:
+
+		It receives a vertex and creates a time equal to 1 and calls the _dfs function.
+		It adds the vertice as gray (visited) of the time of it and searches its neighbors that are equal white (not visited) and makes a recursive call of _dfs.
+		After going through all the vertices it paints each one of them in black (finalized) and adds the final time of discovery.'''
+		
 		global time
 
 		time = 1
 		self._dfs(vertex)
 
 		return(True)
+	
 	def bfs(self, vertex):
+		'''Breadth-First Search:
+
+		It receives a vertex and pint of gray (visited) and creates a list of vertices and adds 1 to that decoberta.
+		As long as the list is greater than 0, the first element of the list will be picked up and painted gray (visited) and it will search for vertices adjacent to it (white vertices).
+		Finding white (unvisited) vertices will be added to the list and given a breakthrough value depending on the parent vertex.
+		This will occur until all the vertices are visited.
+		'''
 		queue = list()
 		vertex.distance = 0
 		vertex.color = 'gray'
@@ -150,13 +164,14 @@ class Graph:
 						node_v.distance = node_u.distance + 1
 		return(True)
 			
-	'''
-	If print graph equal (True), print a matrix, if graph equal (False) print list adjacency
-	if print way graph dfs equal (False and True)
-	if print way graph bfs equal (False and False)
-	'''
-
 	def print_graph(self, verbose=None, dfs = None):
+		''' Print all graphs:
+
+		For print graph equal (True), print an array.
+		For graph equal (False) print list adjacency.
+		For print graph dfs equal (False and True).
+		For print graph bfs equal (False and False)
+		'''
 		if(verbose):
 			for i in range(len(self.dictionary_vertex)):
 				print(f'{[i]} -> {self.adjacency[i]}')
