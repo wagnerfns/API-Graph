@@ -12,7 +12,7 @@ install:
  
 # run tests
 script:
- - coverage run --source=graph setup.py test
+ - coverage run --source=src/graph setup.py test
  #- coverage report
  
 after_success:
