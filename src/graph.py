@@ -190,7 +190,8 @@ class Graph:
 			if visited[v] == False:
 				temp = [] 
 				cc.append(self.conected(temp, v, visited)) 
-		return cc 
+		#return cc
+		return True
 			
 	def print_graph(self, verbose=None, dfs = None):
 		''' Print all graphs:
@@ -216,29 +217,5 @@ class Graph:
 
 #graph = Graph(True, True)  # matriz direcionada
 #graph = Graph(True, False) # matriz nao direcionada
-graph = Graph(False, False) # list adjacency not directed
+#graph = Graph(False, False) # list adjacency not directed
 #graph = Graph(False, True)  # list adjacency directed
-
-# Create a graph given in the above diagram 
-# 5 vertices numbered from 0 to 4 
-
-a = Vertex(0)
-b = Vertex(1)
-c = Vertex(2)
-d = Vertex(3)
-e = Vertex(4)
-
-graph.add_vertex(a)
-graph.add_vertex(b)
-graph.add_vertex(c)
-graph.add_vertex(d)
-graph.add_vertex(e)
-
-graph.add_edge(a, b)
-graph.add_edge(c, d)
-graph.add_edge(d, e)
-
- 
-cc = graph.connectedComponents() 
-#print("Following are connected components") 
-print(cc) 

@@ -167,6 +167,30 @@ class TestMethods(unittest.TestCase):
 
 		self.assertEqual(graph.dfs(e), True, msg='Teste 9')
 		
+	def test_connectedComponents_list_adjacency_not_directed(self):
+		graph = Graph(False, False) # list adjacency not directed
 
+		# Create a graph given in the above diagram 
+		# 5 vertices numbered from 0 to 4 
+
+		a = Vertex(0)
+		b = Vertex(1)
+		c = Vertex(2)
+		d = Vertex(3)
+		e = Vertex(4)
+
+		graph.add_vertex(a)
+		graph.add_vertex(b)
+		graph.add_vertex(c)
+		graph.add_vertex(d)
+		graph.add_vertex(e)
+
+		graph.add_edge(a, b)
+		graph.add_edge(c, d)
+		graph.add_edge(d, e)
+
+		self.assertEqual(graph.connectedComponents(), True, msg='Teste 10')
+
+ 
 if __name__ == '__main__':
     unittest.main()
