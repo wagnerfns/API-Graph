@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/wagnerfns/Grafos.svg?branch=master)](https://travis-ci.org/wagnerfns/Grafos)
+[![Build Status](https://travis-ci.org/wagnerfns/API-Graph.svg?branch=master)](https://travis-ci.org/wagnerfns/API-Graph)
 [![Coverage Status](https://coveralls.io/repos/github/wagnerfns/Grafos/badge.svg?branch=master)](https://coveralls.io/github/wagnerfns/Grafos?branch=master)
 [![](https://img.shields.io/badge/python-3.5+-blue.svg)](https://www.python.org/download/releases/3.5.0/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
