@@ -40,7 +40,7 @@ To run the unit test ```pytest test/test_core.py```
 
 #### How to run coverage
 
-To run the coverage ```coverage run -m pytest test/test_core.py``` this will generate a .coverage file, then run ```coverage report```
+To run the coverage ```coverage run -m pytest``` this will generate a .coverage file, then run ```coverage report```.
 
 ## How each method works
 
