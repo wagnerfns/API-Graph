@@ -9,7 +9,7 @@ sudo: required
 # install dependencies
 install:
  - pip install coveralls
- - pip install -r requeriments
+ - pip install -r requeriments.txt
  
 # run tests
 script:
