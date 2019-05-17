@@ -8,7 +8,6 @@ sudo: required
 
 # install dependencies
 install:
- - pip install coveralls
  - pip install -r requeriments.txt
  
 # run tests
