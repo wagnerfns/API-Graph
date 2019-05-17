@@ -5,16 +5,16 @@ python:
  - "3.6"
 
 sudo: required
-virtualenv:
- system_site_packages: true
- # install dependencies
+
+# install dependencies
 install:
  - pip install coveralls
  - pip install -r requeriments
  
 # run tests
 script:
- - coverage run -m pytest src/test/test_core.py
+ - covarage run -m pytest
+ #- coverage run -m pytest src/test/test_core.py
  #- coverage run --source=src/graph setup.py test
  #- coverage report
  
