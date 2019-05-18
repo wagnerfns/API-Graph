@@ -7,13 +7,13 @@
 
 # API GRAPH
 
-This is a project in my university in the discipline of graphs, the project is an API of graphs, for using functions od graphs using python.
+This is a project at my university in the graphs discipline, the project is an graphs API, for using graphs functions using python.
 
-This project is compatible from python3.6
+This project is compatible with python3.6
 
 ## what was implemented
 
-Currently this project has these methods of graphs:
+Currently this project has these graphs methods:
 
 - Matrix
 - Directed Matrix
