@@ -13,7 +13,7 @@ This project is compatible with python3.6
 
 ## what was implemented
 
-Currently this project has these graphs methods:
+Currently, this project has these graphs methods:
 
 - Matrix
 - Directed Matrix
