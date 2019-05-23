@@ -1,18 +1,19 @@
 [![Build Status](https://travis-ci.org/wagnerfns/API-Graph.svg?branch=master)](https://travis-ci.org/wagnerfns/API-Graph)
 [![Coverage Status](https://coveralls.io/repos/github/wagnerfns/API-Graph/badge.svg?branch=master)](https://coveralls.io/github/wagnerfns/API-Graph?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e29fdd951b1845f39e98daffe6cbf32a)](https://www.codacy.com/app/wagnerfns/API-Graph?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=wagnerfns/API-Graph&amp;utm_campaign=Badge_Grade)
 [![](https://img.shields.io/badge/python-3.5+-blue.svg)](https://www.python.org/download/releases/3.5.0/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
-# Grafos:
+# API GRAPH
 
-This is a project in my university in the discipline of graphs, the project is an API of graphs, for using functions od graphs using python.
+This is a project at my university in the graphs discipline, the project is an graphs API, for using graphs functions using python.
 
-This project is compatible from python3.6
+This project is compatible with python3.6
 
 ## what was implemented:
 
-Currently this project has these methods of graphs:
+Currently, this project has these graphs methods:
 
 - Directed Matrix
 - Not directed Matrix
