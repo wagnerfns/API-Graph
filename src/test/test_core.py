@@ -11,7 +11,7 @@ class TestMethods(unittest.TestCase):
     """Create Test."""
 
     def test_add_vertex_array_not_directed(self):
-        """Test."""
+        """Test add vertex array not directed."""
         graph = Graph(True, False)
         a = Vertex(0)
         b = Vertex(1)
@@ -23,7 +23,7 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(graph.add_edge(a, b), True, msg='Teste 1')
 
     def test_add_vertex_array_directed(self):
-        """Test."""
+        """Test add vertex array directed."""
         graph = Graph(True, True)
         a = Vertex(0)
         b = Vertex(1)
@@ -35,7 +35,7 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(graph.add_edge(a, b), True, msg='Teste 2')
 
     def test_add_vertex_list_not_directed(self):
-        """Test."""
+        """Test add vertex list not directed."""
         graph = Graph(False, False)
         a = Vertex(0)
         b = Vertex(1)
@@ -46,7 +46,7 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(graph.add_edge(a, b), True, msg='Teste 3')
 
     def test_add_vertex_list_directed(self):
-        """Test."""
+        """Test add vertex list directed."""
         graph = Graph(False, True)
         a = Vertex(0)
         b = Vertex(1)
@@ -57,7 +57,7 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(graph.add_edge(a, b), True, msg='Teste 4')
 
     def test_search_vertex_array_not_directed(self):
-        """Test."""
+        """Test search vertex array not directed."""
         graph = Graph(True, False)
         a = Vertex(0)
         b = Vertex(1)
@@ -69,7 +69,7 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(graph.search_vertex(a), [0, 1], msg='Teste 5')
 
     def test_search_vertex_list_not_directed(self):
-        """Test."""
+        """Test search vertex list not directed."""
         graph = Graph(False, False)
         a = Vertex(0)
         b = Vertex(1)
@@ -80,7 +80,7 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(graph.search_vertex(a), [0, 1], msg='Teste 6')
 
     def test_eulerian_array(self):
-        """Test."""
+        """Test eulerian array."""
         graph = Graph(True, False)
         a = Vertex(0)
         b = Vertex(1)
@@ -93,7 +93,7 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(graph.eulerian(), "Is Eulerian", msg='Teste 7')
 
     def test_eulerian_array_open(self):
-        """Test."""
+        """Test eulerian array open."""
         graph = Graph(True, False)
         a = Vertex(0)
         b = Vertex(1)
@@ -120,7 +120,7 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(graph.eulerian(), "Eulerian open", msg='Teste 8')
 
     def test_not_eulerian_array(self):
-        """Test."""
+        """Test not eulerian array."""
         graph = Graph(True, False)
         a = Vertex(0)
         b = Vertex(1)
@@ -135,7 +135,7 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(graph.eulerian(), "Not is eulerian", msg='Teste 9')
 
     def test_bfs_list_not_directed(self):
-        """Test."""
+        """Test bfs list not directed."""
         graph = Graph(False, False)  # list adjacency not directed
 
         a = Vertex(1)
@@ -169,7 +169,7 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(graph.bfs(a), True, msg='Teste 10')
 
     def test_dfs_list_not_directed(self):
-        """Test."""
+        """Test dfs list not directed."""
         graph = Graph(False, False)  # list adjacency not directed
 
         a = Vertex(1)
@@ -204,7 +204,7 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(graph.dfs(e), True, msg='Teste 11')
 
     def test_connected_components_list_adjacency_not_directed(self):
-        """Test."""
+        """Test connected components list adjacency not directed."""
         graph = Graph(False, False)  # list adjacency not directed
         # Create a graph given in the above diagram
         # 5 vertices numbered from 0 to 4
