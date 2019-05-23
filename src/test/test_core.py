@@ -56,8 +56,28 @@ class TestMethods(unittest.TestCase):
         graph.add_edge(b, b)
         self.assertEqual(graph.add_edge(a, b), True, msg='Teste 4')
 
-    # def test_search_vertex_array(self):
-    # def test_search_vertex_list(self):
+    def test_search_vertex_array_not_directed(self):
+        """Test."""
+        graph = Graph(True, False)
+        a = Vertex(0)
+        b = Vertex(1)
+        graph.add_vertex(a)
+        graph.add_vertex(b)
+        graph.create_array()
+        graph.add_edge(a, a)
+        graph.add_edge(a, b)
+        self.assertEqual(graph.search_vertex(a), [0, 1], msg='Teste 5')
+
+    def test_search_vertex_list_not_directed(self):
+        """Test."""
+        graph = Graph(False, False)
+        a = Vertex(0)
+        b = Vertex(1)
+        graph.add_vertex(a)
+        graph.add_vertex(b)
+        graph.add_edge(a, a)
+        graph.add_edge(a, b)
+        self.assertEqual(graph.search_vertex(a), [0, 1], msg='Teste 6')
 
     def test_eulerian_array(self):
         """Test."""
@@ -70,7 +90,7 @@ class TestMethods(unittest.TestCase):
         graph.add_edge(a, a)
         graph.add_edge(b, b)
         graph.add_edge(a, b)
-        self.assertEqual(graph.eulerian(), "Is Eulerian", msg='Teste 5')
+        self.assertEqual(graph.eulerian(), "Is Eulerian", msg='Teste 7')
 
     def test_eulerian_array_open(self):
         """Test."""
@@ -97,7 +117,7 @@ class TestMethods(unittest.TestCase):
         graph.add_edge(d, e)
         graph.add_edge(d, f)
         graph.add_edge(e, f)
-        self.assertEqual(graph.eulerian(), "Eulerian open", msg='Teste 6')
+        self.assertEqual(graph.eulerian(), "Eulerian open", msg='Teste 8')
 
     def test_not_eulerian_array(self):
         """Test."""
@@ -112,7 +132,7 @@ class TestMethods(unittest.TestCase):
         graph.add_edge(a, a)
         graph.add_edge(a, b)
 
-        self.assertEqual(graph.eulerian(), "Not is eulerian", msg='Teste 7')
+        self.assertEqual(graph.eulerian(), "Not is eulerian", msg='Teste 9')
 
     def test_bfs_list_not_directed(self):
         """Test."""
@@ -146,7 +166,7 @@ class TestMethods(unittest.TestCase):
         graph.add_edge(f, e)
         graph.add_edge(f, d)
 
-        self.assertEqual(graph.bfs(a), True, msg='Teste 8')
+        self.assertEqual(graph.bfs(a), True, msg='Teste 10')
 
     def test_dfs_list_not_directed(self):
         """Test."""
@@ -181,9 +201,9 @@ class TestMethods(unittest.TestCase):
         graph.add_edge(f, g)
         graph.add_edge(g, h)
 
-        self.assertEqual(graph.dfs(e), True, msg='Teste 9')
+        self.assertEqual(graph.dfs(e), True, msg='Teste 11')
 
-    def test_connectedComponents_list_adjacency_not_directed(self):
+    def test_connected_components_list_adjacency_not_directed(self):
         """Test."""
         graph = Graph(False, False)  # list adjacency not directed
         # Create a graph given in the above diagram
@@ -205,7 +225,7 @@ class TestMethods(unittest.TestCase):
         graph.add_edge(c, d)
         graph.add_edge(d, e)
 
-        self.assertEqual(graph.connected_components(), True, msg='Teste 10')
+        self.assertEqual(graph.connected_components(), True, msg='Teste 12')
 
 
 if __name__ == '__main__':

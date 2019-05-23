@@ -19,9 +19,6 @@ class Vertex:
             self.neighbors.append(v)  # adiciona um vizinho ao vertice
             self.neighbors.sort()  # ordena
 
-    # def search_vertex(self, index):
-    # print(f"Vertex: {index} - {self.adjacency_list}")
-
 
 """Class implements some types of graphs."""
 
@@ -88,22 +85,28 @@ class Graph:
 
                 if(self.directed):  # if directed or not directed
                     self.array[vertex1.name][vertex2.name] = 1
+
+                    self.adjacency_list[vertex1.name].add_array(vertex2.name)
                 else:
                     self.array[vertex1.name][vertex2.name] = 1
                     self.array[vertex2.name][vertex1.name] = 1
+
+                    self.adjacency_list[vertex1.name].add_array(vertex2.name)
+                    self.adjacency_list[vertex2.name].add_array(vertex1.name)
                 return(True)
             else:  # created list
                 if(self.directed):  # if directed or not directed
-                    self.adjacency_list[vertex1.name]\
-                        .add_array(vertex2.name)
 
+                    self.adjacency_list[vertex1.name].add_array(vertex2.name)
                 else:
-                    self.adjacency_list[vertex1.name]\
-                        .add_array(vertex2.name)
-
-                    self.adjacency_list[vertex2.name]\
-                        .add_array(vertex1.name)
+                    self.adjacency_list[vertex1.name].add_array(vertex2.name)
+                    self.adjacency_list[vertex2.name].add_array(vertex1.name)
                 return(True)
+
+    def search_vertex(self, vertex):
+        """Test."""
+        #print(f"Vertex: {vertex.name} - {vertex.neighbors}")
+        return(vertex.neighbors)
 
     def eulerian(self):
         """Verify if is Eulerian.
@@ -284,3 +287,23 @@ class Graph:
 # graph = Graph(True, False)  # matriz nao direcionada
 # graph = Graph(False, False)  # list adjacency not directed
 # graph = Graph(False, True)  # list adjacency directed
+'''
+graph = Graph(False, False)
+a = Vertex(0)
+b = Vertex(1)
+graph.add_vertex(a)
+graph.add_vertex(b)
+graph.add_edge(a, a)
+graph.add_edge(a, b)
+graph.search_vertex(a)
+'''
+graph = Graph(True, False)
+a = Vertex(0)
+b = Vertex(1)
+graph.add_vertex(a)
+graph.add_vertex(b)
+graph.create_array()
+graph.add_edge(a, a)
+graph.add_edge(a, b)
+graph.search_vertex(a)
+# self.assertEqual(graph.add_edge(a, b), True, msg='Teste 1')
