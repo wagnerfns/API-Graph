@@ -6,13 +6,11 @@
 
 
 # API GRAPH
-
 This is a project at my university in the graphs discipline, the project is an graphs API, for using graphs functions using python.
 
 This project is compatible with python3.6
 
 ## what was implemented:
-
 Currently, this project has these graphs methods:
 
 - Directed Matrix
@@ -25,33 +23,27 @@ Currently, this project has these graphs methods:
 - Breadth First Search (BFS)
 - Connected Components
 - Transitive Closing
+- Warshall Algorithm: Transitive Closure
 - ?
 
 ## Dependencies:
-
 To install, run: ```pip install -r requirements.txt``` will be installed, pytest, unittest and coverage.
 
-## How to run:
-### Using the graph:
+## How to use:
 #### Creating a vertex:
 #### Creating an edge:
-#### Creating an array:
-
+#### Creating an array and adjacency list:
 
 ## How to run test:
-
 The test will run locally.
 
 ### How to run a single unit test:
-
 To run the unit test ```pytest test/test_core.py```.
 
 ### How to run coverage:
-
 To run the coverage ```coverage run -m pytest``` this will generate a .coverage file, then run ```coverage report```.
 
 ## How each method works:
-
 To know how each method is working use the ```__doc__``` command to know the documentation of each method. An example of using ```print(graph.add_edg .__ doc__)```, so documentation of that method can be read via command line.
 
 ## How contribuit:

@@ -278,8 +278,38 @@ class Graph:
                                (array_transitive[l][j] == 1)):
 
                                 array_transitive[i][j] = 1
+
+            # print("Array")
+            # for i in range(size):
+            #     print(self.array[i])
+            # print("Array transitive closing")
             # for i in range(size):
             #    print(array_transitive[i])
+            return(True)
+        else:
+            return(False)
+
+    def algorithm_warshall(self):
+        """Array algorithm warshall."""
+        if(self.directed):
+            size = len(self.adjacency_list)
+            array_warshall = np.copy(self.array)
+
+            for k in range(size):
+                for i in range(size):
+                    for j in range(size):
+                        if ((array_warshall[i][j] == 0) and
+                           (array_warshall[i][k] == 1) and
+                           (array_warshall[k][j] == 1)):
+
+                            array_warshall[i][j] = 1
+
+            # print("Array")
+            # for i in range(size):
+            #     print(self.array[i])
+            # print("The transitive closure of the digraph")
+            # for i in range(size):
+            #     print(array_warshall[i])
             return(True)
         else:
             return(False)
@@ -314,3 +344,25 @@ class Graph:
 # graph = Graph(True, False)  # matriz nao direcionada
 # graph = Graph(False, False)  # list adjacency not directed
 # graph = Graph(False, True)  # list adjacency directed
+
+graph = Graph(True, True)  # matriz direcionada
+
+a = Vertex(0)
+b = Vertex(1)
+c = Vertex(2)
+d = Vertex(3)
+graph.add_vertex(a)
+graph.add_vertex(b)
+graph.add_vertex(c)
+graph.add_vertex(d)
+
+graph.create_array()
+
+graph.add_edge(a, d)
+graph.add_edge(b, a)
+graph.add_edge(b, c)
+graph.add_edge(c, a)
+graph.add_edge(c, d)
+graph.add_edge(d, c)
+
+graph.algorithm_warshall()
