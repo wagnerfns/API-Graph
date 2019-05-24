@@ -1,5 +1,5 @@
+numpy
 pytest
 unittest2
 coverage
 coveralls
-

@@ -21,9 +21,10 @@ Currently, this project has these graphs methods:
 - Search Vertex
 - List adjacency not directed
 - Eulerian open or closed
-- Depth First Search(DFS)
-- Breadth First Search(BFS)
+- Depth First Search (DFS)
+- Breadth First Search (BFS)
 - Connected Components
+- Transitive Closing
 - ?
 
 ## Dependencies:

@@ -1,3 +1,6 @@
+"""Numpy."""
+import numpy as np
+
 """Test."""
 
 
@@ -105,7 +108,7 @@ class Graph:
 
     def search_vertex(self, vertex):
         """Test."""
-        #print(f"Vertex: {vertex.name} - {vertex.neighbors}")
+        # print(f"Vertex: {vertex.name} - {vertex.neighbors}")
         return(vertex.neighbors)
 
     def eulerian(self):
@@ -257,6 +260,30 @@ class Graph:
         # print(f"connected_component: {connected_component}")
         return (True)
 
+    def transitive_closing(self):
+        """Array transitive closing.
+
+        makes a copy of the matrix and multiplies the matrices to the vertices
+        quantity, and for each iteration True it adds 1 to that point in the
+        copy matrix and part to a new iteration.
+        """
+        if(self.directed):
+            size = len(self.adjacency_list)
+            array_transitive = np.copy(self.array)
+            for y in range(size):
+                for i in range(size):
+                    for j in range(size):
+                        for l in range(size):
+                            if ((self.array[i][l] == 1) and
+                               (array_transitive[l][j] == 1)):
+
+                                array_transitive[i][j] = 1
+            # for i in range(size):
+            #    print(array_transitive[i])
+            return(True)
+        else:
+            return(False)
+
 
 '''
     def print_graph(self, verbose=None, dfs = None):
@@ -287,23 +314,3 @@ class Graph:
 # graph = Graph(True, False)  # matriz nao direcionada
 # graph = Graph(False, False)  # list adjacency not directed
 # graph = Graph(False, True)  # list adjacency directed
-'''
-graph = Graph(False, False)
-a = Vertex(0)
-b = Vertex(1)
-graph.add_vertex(a)
-graph.add_vertex(b)
-graph.add_edge(a, a)
-graph.add_edge(a, b)
-graph.search_vertex(a)
-'''
-graph = Graph(True, False)
-a = Vertex(0)
-b = Vertex(1)
-graph.add_vertex(a)
-graph.add_vertex(b)
-graph.create_array()
-graph.add_edge(a, a)
-graph.add_edge(a, b)
-graph.search_vertex(a)
-# self.assertEqual(graph.add_edge(a, b), True, msg='Teste 1')
