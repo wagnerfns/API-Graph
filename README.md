@@ -1,6 +1,6 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e29fdd951b1845f39e98daffe6cbf32a)](https://www.codacy.com/app/wagnerfns/API-Graph?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=wagnerfns/API-Graph&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/wagnerfns/API-Graph.svg?branch=master)](https://travis-ci.org/wagnerfns/API-Graph)
 [![Coverage Status](https://coveralls.io/repos/github/wagnerfns/API-Graph/badge.svg?branch=master)](https://coveralls.io/github/wagnerfns/API-Graph?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e29fdd951b1845f39e98daffe6cbf32a)](https://www.codacy.com/app/wagnerfns/API-Graph?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=wagnerfns/API-Graph&amp;utm_campaign=Badge_Grade)
 [![](https://img.shields.io/badge/python-3.5+-blue.svg)](https://www.python.org/download/releases/3.5.0/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
@@ -36,38 +36,44 @@ For creating a graph is necessary to initialize a class ```graph = Graph()```, a
 
 Create a graph using an array is instanced ```graph = Graph(True, *)``` and graph using adjacency list is instanced ```graph = Graph(False,*)```.
 
-
-For creating a graph directed and not directed,
-
-using array for graph directed is instanced  and for creating graph not directed
-
-
-For graph directed and not directed use:
-
-Create a graph directed using array, ```graph = Graph(True, True)```
-Create a graph not directed using array, ```graph = Graph(True, False)```
-
-Create a graph directed using adjacency list, ```graph = Graph(False, True)```
-Create a graph not directed using adjacency list, ```graph = Graph(False, False)```
-
-
-# graph = Graph(True, True)  # matriz direcionada
-# graph = Graph(True, False)  # matriz nao direcionada
-# graph = Graph(False, False)  # list adjacency not directed
-# graph = Graph(False, True)  # list adjacency directed
+You can create a graph directed and not directed. For a graph directed using an array ```graph = Graph(True, True)```, for a graph directed using a list ```graph = Graph(False, True)```, also create a graph not directed using an array ```graph = Graph(True, False)``` or list ```graph = Graph(False, False)```.
 
 #### Creating a vertex:
-```a = Vertex(0)
-   b = Vertex(1)
+For create a vertex is necessary to initialize a graph, let's create a graph not directed using an array for example:
+
+```
+  graph = Graph(True, False)
+  a = Vertex(0)
+  b = Vertex(1)
 ```
 
 #### Creating an array and adjacency list:
+For create an array is necessary to have created vertex, after created the vertex, initialize a graph using ```graph.create_array()```.
+Important to know: if you to use adjacency list not necessary initialize the list because when creating a graph is initialized automatically an adjacency list by default.
+
+* Adjacency Array
 ```
-graph.create_array()
+  graph = Graph(True, False)
+  a = Vertex(0)
+  b = Vertex(1)
+  graph.create_array()
+```
+
+* Adjacency List
+```
+  graph = Graph(True, False)
+  a = Vertex(0)
+  b = Vertex(1)
 ```
 
 #### Creating an edge:
+Create an edge is necessary to have initialized a graph, use the ```graph.add_edge(a, a)``` for create an edge.
+
 ```
+graph = Graph(True, False)
+a = Vertex(0)
+b = Vertex(1)
+graph.create_array()
 graph.add_edge(a, a)
 graph.add_edge(b, b)
 ```
@@ -75,7 +81,7 @@ graph.add_edge(b, b)
 ## How each method works:
 To know how each method is working use the ```__doc__``` command to know the documentation of each method. An example of using ```print(graph.add_edg .__ doc__)```, so documentation of that method can be read via command line.
 
-## How to run test:
+## Run test:
 The test will run locally.
 
 ### How to run a single unit test:
