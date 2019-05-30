@@ -290,7 +290,12 @@ class Graph:
             return(False)
 
     def algorithm_warshall(self):
-        """Array algorithm warshall."""
+        """Array algorithm warshall.
+
+        first, verify if directed or not directed. After is created a copy of
+        the array. While traversing the copy matrix, a check is made if the row
+        and column have 1 and at that specific point has zero is added 1.
+        """
         if(self.directed):
             size = len(self.adjacency_list)
             array_warshall = np.copy(self.array)
@@ -313,6 +318,8 @@ class Graph:
             return(True)
         else:
             return(False)
+
+
 
 
 '''
@@ -344,25 +351,3 @@ class Graph:
 # graph = Graph(True, False)  # matriz nao direcionada
 # graph = Graph(False, False)  # list adjacency not directed
 # graph = Graph(False, True)  # list adjacency directed
-
-graph = Graph(True, True)  # matriz direcionada
-
-a = Vertex(0)
-b = Vertex(1)
-c = Vertex(2)
-d = Vertex(3)
-graph.add_vertex(a)
-graph.add_vertex(b)
-graph.add_vertex(c)
-graph.add_vertex(d)
-
-graph.create_array()
-
-graph.add_edge(a, d)
-graph.add_edge(b, a)
-graph.add_edge(b, c)
-graph.add_edge(c, a)
-graph.add_edge(c, d)
-graph.add_edge(d, c)
-
-graph.algorithm_warshall()
