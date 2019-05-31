@@ -1,30 +1,5 @@
-"""Numpy."""
-#import numpy as np
-
-"""Test."""
-
-
-class Vertex:
-    """Create Vertex."""
-
-    def __init__(self, n):
-        """Test."""
-        self.name = n
-        self.neighbors = list()  # vertices ligados a esse vertice
-        self.discovery = 0
-        self.finish = 0
-        self.distance = 9999
-        self.color = 'white'
-
-    def add_array(self, v):
-        """Test."""
-        if v not in self.neighbors:
-            self.neighbors.append(v)  # adiciona um vizinho ao vertice
-            self.neighbors.sort()  # ordena
-
-
-"""Class implements some types of graphs."""
-
+import numpy as np
+from vertex import Vertex
 
 class Graph:
     """Graph class."""
@@ -163,7 +138,6 @@ class Graph:
         vertex.color = 'black'
         vertex.finish = time
         time += 1
-
 
     def dfs(self, vertex, timing=1):
         """Depth-First Search.
@@ -318,6 +292,38 @@ class Graph:
         else:
             return(False)
 
+    def topological_sorting(self):
+        """Test."""
+        list_not_origin = []
+        list_origin = []
+
+        for i in range(len(self.adjacency_list)):
+            for j in range(len(self.adjacency_list)):
+                if i in self.adjacency_list[j].neighbors:
+                    list_not_origin.append(i)
+                else:
+                    list_origin.append(i)
+
+        list_not_origin = sorted(set(list_not_origin))
+        list_origin = sorted(set(list_origin))
+
+        for k in range(len(list_origin)):
+            if k in list_not_origin:
+                list_origin.remove(k)
+
+        time = 1
+
+        for i in range(len(list_origin)):
+            time = (self.dfs(self.adjacency_list[list_origin[i]], time))
+
+        test = {}
+        for key in sorted(list(self.adjacency_list.keys())):
+            test[self.adjacency_list[key].finish] = key
+
+        # for i in sorted(list(test.keys()), reverse=True):
+        #     print(f"vertex: {test[i]} - {i}")
+        return(True)
+
     def strongly_connected_component(self, vertex):
         """Strongly Connected Component."""
 
@@ -336,36 +342,11 @@ class Graph:
             print(key, " - ", self.adjacency_list[key].neighbors, " - ", self.adjacency_list[key].discovery)
 
 
-
-'''
-    def print_graph(self, verbose=None, dfs = None):
-        """Print all graphs.
-
-        For print graph equal (True), print an array.
-        For graph equal (False) print list adjacency.
-        For print graph dfs equal (False and True).
-        For print graph bfs equal (False and False)
-
-        """
-        if(verbose):
-            for i in range(len(self.adjacency_list)):
-                print(f'{[i]} -> {self.array[i]}')
-        elif(not verbose and dfs == None):
-            for key in sorted(list(self.adjacency_list.keys())):
-                print(f"{key} - {self.adjacency_list[key].neighbors}")
-        if(dfs):
-            for key in sorted(list(self.adjacency_list.keys())):
-                print(f"{key} - {self.adjacency_list[key].neighbors}"
-                      f" - {self.adjacency_list[key].discovery}")
-        else:
-            for key in sorted(list(self.adjacency_list.keys())):
-                print(f"{key} - {self.adjacency_list[key].neighbors}"
-                      f" - {self.adjacency_list[key].distance}")
-'''
 # graph = Graph(True, True)  # matriz direcionada
 # graph = Graph(True, False)  # matriz nao direcionada
 # graph = Graph(False, False)  # list adjacency not directed
 # graph = Graph(False, True)  # list adjacency directed
+
 
 graph = Graph(True, True)  # matriz not direcionada
 
