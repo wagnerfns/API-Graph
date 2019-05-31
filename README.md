@@ -41,7 +41,7 @@ You can create a graph directed and not directed. For a graph directed using an 
 #### Creating a vertex:
 For create a vertex is necessary to initialize a graph, let's create a graph not directed using an array for example:
 
-```
+```py
   graph = Graph(True, False)
   a = Vertex(0)
   b = Vertex(1)
@@ -52,7 +52,7 @@ For create an array is necessary to have created vertex, after created the verte
 Important to know: if you to use adjacency list not necessary initialize the list because when creating a graph is initialized automatically an adjacency list by default.
 
 * Adjacency Array
-```
+```py
   graph = Graph(True, False)
   a = Vertex(0)
   b = Vertex(1)
@@ -60,7 +60,7 @@ Important to know: if you to use adjacency list not necessary initialize the lis
 ```
 
 * Adjacency List
-```
+```py
   graph = Graph(True, False)
   a = Vertex(0)
   b = Vertex(1)
@@ -69,7 +69,7 @@ Important to know: if you to use adjacency list not necessary initialize the lis
 #### Creating an edge:
 Create an edge is necessary to have initialized a graph, use the ```graph.add_edge(a, a)``` for create an edge.
 
-```
+```py
 graph = Graph(True, False)
 a = Vertex(0)
 b = Vertex(1)
