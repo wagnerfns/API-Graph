@@ -164,7 +164,8 @@ class Graph:
         vertex.finish = time
         time += 1
 
-    def dfs(self, vertex):
+
+    def dfs(self, vertex, timing=1):
         """Depth-First Search.
 
         It receives a vertex and creates a time equal to 1 and calls the _dfs
@@ -176,11 +177,9 @@ class Graph:
 
         """
         global time
-
-        time = 1
+        time = timing
         self._dfs(vertex)
-
-        return(True)
+        return(time)
 
     def bfs(self, vertex):
         """Breadth-First Search.
@@ -315,6 +314,7 @@ class Graph:
             return(False)
 
 
+
 '''
     def print_graph(self, verbose=None, dfs = None):
         """Print all graphs.
@@ -344,25 +344,3 @@ class Graph:
 # graph = Graph(True, False)  # matriz nao direcionada
 # graph = Graph(False, False)  # list adjacency not directed
 # graph = Graph(False, True)  # list adjacency directed
-
-graph = Graph(True, True)  # matriz direcionada
-
-a = Vertex(0)
-b = Vertex(1)
-c = Vertex(2)
-d = Vertex(3)
-graph.add_vertex(a)
-graph.add_vertex(b)
-graph.add_vertex(c)
-graph.add_vertex(d)
-
-graph.create_array()
-
-graph.add_edge(a, d)
-graph.add_edge(b, a)
-graph.add_edge(b, c)
-graph.add_edge(c, a)
-graph.add_edge(c, d)
-graph.add_edge(d, c)
-
-graph.algorithm_warshall()

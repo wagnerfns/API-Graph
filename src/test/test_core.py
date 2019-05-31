@@ -201,7 +201,7 @@ class TestMethods(unittest.TestCase):
         graph.add_edge(f, g)
         graph.add_edge(g, h)
 
-        self.assertEqual(graph.dfs(e), True, msg='Teste 11')
+        self.assertEqual(graph.dfs(e), 17, msg='Teste 11')
 
     def test_connected_components_list_adjacency_not_directed(self):
         """Test connected components list adjacency not directed."""
