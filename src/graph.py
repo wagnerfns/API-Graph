@@ -1,5 +1,5 @@
 """Numpy."""
-import numpy as np
+#import numpy as np
 
 """Test."""
 
@@ -319,7 +319,22 @@ class Graph:
         else:
             return(False)
 
+    def strongly_connected_component(self, vertex):
+        """Strongly Connected Component."""
 
+        # array_connected = np.copy(self.array)
+        # array_connected = np.transpose(array_connected)
+
+        self.dfs(vertex)
+
+        print("dfs")
+        for key in sorted(list(self.adjacency_list.keys())):
+            print(key, self.adjacency_list[key].neighbors, " - ", self.adjacency_list[key].discovery, " - ", self.adjacency_list[key].discovery)
+
+        self.dfs(self.adjacency_list[4])
+        print("dfs - novo")
+        for key in sorted(list(self.adjacency_list.keys())):
+            print(key, " - ", self.adjacency_list[key].neighbors, " - ", self.adjacency_list[key].discovery)
 
 
 '''
@@ -351,3 +366,45 @@ class Graph:
 # graph = Graph(True, False)  # matriz nao direcionada
 # graph = Graph(False, False)  # list adjacency not directed
 # graph = Graph(False, True)  # list adjacency directed
+
+graph = Graph(True, True)  # matriz not direcionada
+
+a = Vertex(0)
+b = Vertex(1)
+c = Vertex(2)
+d = Vertex(3)
+e = Vertex(4)
+f = Vertex(5)
+g = Vertex(6)
+h = Vertex(7)
+i = Vertex(8)
+
+graph.add_vertex(a)
+graph.add_vertex(b)
+graph.add_vertex(c)
+graph.add_vertex(d)
+graph.add_vertex(e)
+graph.add_vertex(f)
+graph.add_vertex(g)
+graph.add_vertex(h)
+graph.add_vertex(i)
+
+
+graph.create_array()
+
+
+graph.add_edge(a, b)
+graph.add_edge(a, c)
+graph.add_edge(b, e)
+graph.add_edge(b, d)
+graph.add_edge(c, d)
+graph.add_edge(d, h)
+graph.add_edge(d, a)
+graph.add_edge(e, f)
+graph.add_edge(f, g)
+graph.add_edge(f, h)
+graph.add_edge(g, e)
+graph.add_edge(h, i)
+graph.add_edge(i, h)
+
+graph.strongly_connected_component(a)
