@@ -23,6 +23,7 @@ Currently, this project has these graphs methods:
 - Connected Components
 - Transitive Closing
 - Warshall Algorithm: Transitive Closure
+- Topological Sorting
 - ?
 
 ## Dependencies:
