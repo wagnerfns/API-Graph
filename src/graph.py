@@ -1,4 +1,5 @@
 import numpy as np
+from collections import defaultdict
 from vertex import Vertex
 
 class Graph:
@@ -327,65 +328,72 @@ class Graph:
     def strongly_connected_component(self, vertex):
         """Strongly Connected Component."""
 
-        # array_connected = np.copy(self.array)
-        # array_connected = np.transpose(array_connected)
+    def SCCUtil(self, u, low, disc, stackMember, st):
 
-        self.dfs(vertex)
+        # Initialize discovery time and low value
 
-        print("dfs")
-        for key in sorted(list(self.adjacency_list.keys())):
-            print(key, self.adjacency_list[key].neighbors, " - ", self.adjacency_list[key].discovery, " - ", self.adjacency_list[key].discovery)
+        global time
+        disc[u] = time
+        low[u] = time
+        time += 1
+        stackMember[u] = True
+        st.append(u)
 
-        self.dfs(self.adjacency_list[4])
-        print("dfs - novo")
-        for key in sorted(list(self.adjacency_list.keys())):
-            print(key, " - ", self.adjacency_list[key].neighbors, " - ", self.adjacency_list[key].discovery)
+        # Go through all vertices adjacent to this
+        for v in self.adjacency_list[u].neighbors:
 
+            # If v is not visited yet, then recur for it
+            if disc[v] == -1:
 
+                self.SCCUtil(v, low, disc, stackMember, st)
+
+                # Check if the subtree rooted with v has a connection to
+                # one of the ancestors of u
+                # Case 1 (per above discussion on Disc and Low value)
+                low[u] = min(low[u], low[v])
+
+            elif stackMember[v] == True:
+
+                '''Update low value of 'u' only if 'v' is still in stack
+                (i.e. it's a back edge, not cross edge).
+                Case 2 (per above discussion on Disc and Low value) '''
+                low[u] = min(low[u], disc[v])
+
+        # head node found, pop the stack and print an SCC
+        w = -1 #To store stack extracted vertices
+        if low[u] == disc[u]:
+            while w != u:
+                w = st.pop()
+                print(w)
+                stackMember[w] = False
+
+            print("--")
+
+    #The function to do DFS traversal.
+    # It uses recursive SCCUtil()
+    def SCC(self):
+        for i in range(len(self.adjacency_list)):
+                        print(f'{[i]} -> {self.array[i]}')
+        # Mark all the vertices as not visited
+        # and Initialize parent and visited,
+        # and ap(articulation point) arrays
+        disc = [-1] * len(self.adjacency_list)
+        low = [-1] * len(self.adjacency_list)
+        stackMember = [False] * len(self.adjacency_list)
+        st =[]
+
+        global time
+        time = 0
+        # Call the recursive helper function
+        # to find articulation points
+        # in DFS tree rooted with vertex 'i'
+        for i in range(len(self.adjacency_list)):
+            if disc[i] == -1:
+                self.SCCUtil(i, low, disc, stackMember, st)
+        return(True)
+
+        
 # graph = Graph(True, True)  # matriz direcionada
 # graph = Graph(True, False)  # matriz nao direcionada
 # graph = Graph(False, False)  # list adjacency not directed
 # graph = Graph(False, True)  # list adjacency directed
-
-
-graph = Graph(True, True)  # matriz not direcionada
-
-a = Vertex(0)
-b = Vertex(1)
-c = Vertex(2)
-d = Vertex(3)
-e = Vertex(4)
-f = Vertex(5)
-g = Vertex(6)
-h = Vertex(7)
-i = Vertex(8)
-
-graph.add_vertex(a)
-graph.add_vertex(b)
-graph.add_vertex(c)
-graph.add_vertex(d)
-graph.add_vertex(e)
-graph.add_vertex(f)
-graph.add_vertex(g)
-graph.add_vertex(h)
-graph.add_vertex(i)
-
-
-graph.create_array()
-
-
-graph.add_edge(a, b)
-graph.add_edge(a, c)
-graph.add_edge(b, e)
-graph.add_edge(b, d)
-graph.add_edge(c, d)
-graph.add_edge(d, h)
-graph.add_edge(d, a)
-graph.add_edge(e, f)
-graph.add_edge(f, g)
-graph.add_edge(f, h)
-graph.add_edge(g, e)
-graph.add_edge(h, i)
-graph.add_edge(i, h)
-
-graph.strongly_connected_component(a)
