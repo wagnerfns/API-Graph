@@ -16,7 +16,7 @@ class Graph:
         self.directed = directed  # flag para saber se eh direcioando ou nao
         self.adj_type = verbose  # flag para saber eh adjacency_list ou matriz
         self.adjacency_list = {}  # is a dictionary of vertex
-
+        self.weight = {}
     time = 0
 
     def create_array(self):
@@ -49,7 +49,7 @@ class Graph:
             else:
                 return(False)
 
-    def add_edge(self, vertex1, vertex2):
+    def add_edge(self, vertex1, vertex2, weight=0):
         """Create an edge.
 
         First check if it is an object, after being directed or not directed.
@@ -58,6 +58,7 @@ class Graph:
         values in that range.
 
         """
+        self.weight[(vertex1, vertex2)] = weight
         # verify if created vertex
         if(isinstance(vertex1, Vertex)) and (isinstance(vertex2, Vertex)):
             if(self.adj_type):  # created array
@@ -283,12 +284,12 @@ class Graph:
 
                             array_warshall[i][j] = 1
 
-            # print("Array")
-            # for i in range(size):
-            #     print(self.array[i])
-            # print("The transitive closure of the digraph")
-            # for i in range(size):
-            #     print(array_warshall[i])
+            print("Array")
+            for i in range(size):
+                print(self.array[i])
+            print("The transitive closure of the digraph")
+            for i in range(size):
+                print(array_warshall[i])
             return(True)
         else:
             return(False)
@@ -321,12 +322,9 @@ class Graph:
         for key in sorted(list(self.adjacency_list.keys())):
             test[self.adjacency_list[key].finish] = key
 
-        # for i in sorted(list(test.keys()), reverse=True):
-        #     print(f"vertex: {test[i]} - {i}")
+        for i in sorted(list(test.keys()), reverse=True):
+         print(f"vertex: {test[i]} - {i}")
         return(True)
-
-    def strongly_connected_component(self, vertex):
-        """Strongly Connected Component."""
 
     def SCCUtil(self, u, low, disc, stackMember, st):
 
@@ -392,8 +390,136 @@ class Graph:
                 self.SCCUtil(i, low, disc, stackMember, st)
         return(True)
 
-        
+def dijkstra(graph, start, goal):
+    shortest_distance = {}
+    predecessor = {}
+    unseenNodes = graph
+    infinity = 9999999
+    path = []
+    for node in unseenNodes:
+        shortest_distance[node] = infinity
+    shortest_distance[start] = 0
+
+    while unseenNodes:
+        minNode = None
+        for node in unseenNodes:
+            if minNode is None:
+                minNode = node
+            elif shortest_distance[node] < shortest_distance[minNode]:
+                minNode = node
+
+        for childNode, weight in graph[minNode].items():
+            if weight + shortest_distance[minNode] < shortest_distance[childNode]:
+                shortest_distance[childNode] = weight + shortest_distance[minNode]
+                predecessor[childNode] = minNode
+        unseenNodes.pop(minNode)
+
+    currentNode = goal
+    while currentNode != start:
+        try:
+            path.insert(0,currentNode)
+            currentNode = predecessor[currentNode]
+        except KeyError:
+            print('Path not reachable')
+            break
+    path.insert(0,start)
+    if shortest_distance[goal] != infinity:
+        print('Shortest distance is ' + str(shortest_distance[goal]))
+        print('And the path is ' + str(path))
+
+
 # graph = Graph(True, True)  # matriz direcionada
 # graph = Graph(True, False)  # matriz nao direcionada
 # graph = Graph(False, False)  # list adjacency not directed
 # graph = Graph(False, True)  # list adjacency directed
+
+graph = Graph(True, True)
+
+array = {'a':{'b':10,'c':3},'b':{'c':1,'d':2},'c':{'b':4,'d':8,'e':2},'d':{'e':7},'e':{'d':9}}
+#dijkstra(array, 'a', 'e')
+
+
+
+
+
+
+print("Escolha\n")
+a = 1
+while a != 0:
+    print("0 - sair\n1- Warshall\n2 - Ordenacao topologica\n3 - Fortemente conectado\n4 -dijkstra ")
+    a = int(input("-> "))
+
+    if(a == 1):
+        graph = Graph(True, False)  # matriz not direcionada
+
+        a = Vertex(0)
+        b = Vertex(1)
+        c = Vertex(2)
+        d = Vertex(3)
+        graph.add_vertex(a)
+        graph.add_vertex(b)
+        graph.add_vertex(c)
+        graph.add_vertex(d)
+
+        graph.create_array()
+
+        graph.add_edge(a, d)
+        graph.add_edge(b, a)
+        graph.add_edge(b, c)
+        graph.add_edge(c, a)
+        graph.add_edge(c, d)
+        graph.add_edge(d, c)
+
+        graph.algorithm_warshall()
+    elif(a == 2):
+        graph = Graph(False, True)  # list direcionada
+
+        a = Vertex(0)
+        b = Vertex(1)
+        c = Vertex(2)
+        d = Vertex(3)
+        e = Vertex(4)
+        f = Vertex(5)
+
+        graph.add_vertex(a)
+        graph.add_vertex(b)
+        graph.add_vertex(c)
+        graph.add_vertex(d)
+        graph.add_vertex(e)
+        graph.add_vertex(f)
+
+        graph.add_edge(f, a)
+        graph.add_edge(f, c)
+        graph.add_edge(c, d)
+        graph.add_edge(d, b)
+        graph.add_edge(e, a)
+        graph.add_edge(e, b)
+
+        graph.topological_sorting()
+
+    elif(a == 3):
+        graph = Graph(True, True)  # matriz direcionada
+
+        a = Vertex(0)
+        b = Vertex(1)
+        c = Vertex(2)
+        d = Vertex(3)
+
+        graph.add_vertex(a)
+        graph.add_vertex(b)
+        graph.add_vertex(c)
+        graph.add_vertex(d)
+
+        graph.create_array()
+
+        graph.add_edge(a, b)
+        graph.add_edge(b, a)
+        graph.add_edge(b, c)
+        graph.add_edge(c, d)
+        graph.add_edge(d, c)
+
+        graph.SCC()
+
+    elif(a == 4):
+        array = {'a':{'b':10,'c':3},'b':{'c':1,'d':2},'c':{'b':4,'d':8,'e':2},'d':{'e':7},'e':{'d':9}}
+        dijkstra(array, 'a', 'e')
