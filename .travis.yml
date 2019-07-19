@@ -12,8 +12,8 @@ install:
  
 # run tests
 script:
- - coverage run -m pytest
- #- coverage run -m pytest src/test/test_core.py
+ #- coverage run -m pytest
+ - coverage run -m pytest test/test_core.py
  #- coverage run --source=src/graph setup.py test
  #- coverage report
  
