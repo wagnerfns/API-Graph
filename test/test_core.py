@@ -1,8 +1,6 @@
-"""Test."""
-
 import unittest
-from graph import Graph
-from vertex import Vertex
+from scripts.graph import Graph
+from scripts.vertex import Vertex
 
 """Test."""
 
