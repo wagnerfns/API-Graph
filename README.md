@@ -51,7 +51,7 @@ For create a vertex is necessary to initialize a graph, let's create a graph not
 For create an array is necessary to have created vertex, after created the vertex, initialize a graph using ```graph.create_array()```.
 Important to know: if you to use adjacency list not necessary initialize the list because when creating a graph is initialized automatically an adjacency list by default.
 
-- Adjacency Array
+-   Adjacency Array
 ```py
   graph = Graph(True, False)
   a = Vertex(0)
@@ -59,7 +59,7 @@ Important to know: if you to use adjacency list not necessary initialize the lis
   graph.create_array()
 ```
 
-- Adjacency List
+-   Adjacency List
 ```py
   graph = Graph(True, False)
   a = Vertex(0)
