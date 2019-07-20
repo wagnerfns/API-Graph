@@ -12,8 +12,8 @@ This project is compatible with python3.6
 ## What was implemented
 Currently, this project has these graphs methods:
 
-- Directed Matrix
--  Not directed Matrix
+-   Directed Matrix
+-   Not directed Matrix
 -  List adjacency directed
 -  Search Vertex
 -  List adjacency not directed
