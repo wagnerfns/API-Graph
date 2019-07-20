@@ -14,17 +14,17 @@ Currently, this project has these graphs methods:
 
 -   Directed Matrix
 -   Not directed Matrix
--  List adjacency directed
--  Search Vertex
--  List adjacency not directed
--  Eulerian open or closed
--  Depth First Search (DFS)
--  Breadth First Search (BFS)
--  Connected Components
--  Transitive Closing
--  Warshall Algorithm: Transitive Closure
--  Topological Sorting
--  ?
+-   List adjacency directed
+-   Search Vertex
+-   List adjacency not directed
+-   Eulerian open or closed
+-   Depth First Search (DFS)
+-   Breadth First Search (BFS)
+-   Connected Components
+-   Transitive Closing
+-   Warshall Algorithm: Transitive Closure
+-   Topological Sorting
+-   ?
 
 ## Dependencies
 To install, run: ```pip install -r requirements.txt``` will be installed, pytest, unittest and coverage.
