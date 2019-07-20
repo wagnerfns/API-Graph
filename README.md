@@ -12,19 +12,19 @@ This project is compatible with python3.6
 ## What was implemented
 Currently, this project has these graphs methods:
 
-  - Directed Matrix
-  - Not directed Matrix
-  - List adjacency directed
-  - Search Vertex
-  - List adjacency not directed
-  - Eulerian open or closed
-  - Depth First Search (DFS)
-  - Breadth First Search (BFS)
-  - Connected Components
-  - Transitive Closing
-  - Warshall Algorithm: Transitive Closure
-  - Topological Sorting
-  - ?
+-  Directed Matrix
+-  Not directed Matrix
+-  List adjacency directed
+-  Search Vertex
+-  List adjacency not directed
+-  Eulerian open or closed
+-  Depth First Search (DFS)
+-  Breadth First Search (BFS)
+-  Connected Components
+-  Transitive Closing
+-  Warshall Algorithm: Transitive Closure
+-  Topological Sorting
+-  ?
 
 ## Dependencies
 To install, run: ```pip install -r requirements.txt``` will be installed, pytest, unittest and coverage.
@@ -38,7 +38,7 @@ Create a graph using an array is instanced ```graph = Graph(True, *)``` and grap
 
 You can create a graph directed and not directed. For a graph directed using an array ```graph = Graph(True, True)```, for a graph directed using a list ```graph = Graph(False, True)```, also create a graph not directed using an array ```graph = Graph(True, False)``` or list ```graph = Graph(False, False)```.
 
-#### Creating a vertex
+### Creating a vertex
 For create a vertex is necessary to initialize a graph, let's create a graph not directed using an array for example:
 
 ```py
@@ -47,7 +47,7 @@ For create a vertex is necessary to initialize a graph, let's create a graph not
   b = Vertex(1)
 ```
 
-#### Creating an array and adjacency list
+### Creating an array and adjacency list
 For create an array is necessary to have created vertex, after created the vertex, initialize a graph using ```graph.create_array()```.
 Important to know: if you to use adjacency list not necessary initialize the list because when creating a graph is initialized automatically an adjacency list by default.
 
@@ -66,7 +66,7 @@ Important to know: if you to use adjacency list not necessary initialize the lis
   b = Vertex(1)
 ```
 
-#### Creating an edge
+### Creating an edge
 Create an edge is necessary to have initialized a graph, use the ```graph.add_edge(a, a)``` for create an edge.
 
 ```py
