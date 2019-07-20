@@ -5,9 +5,11 @@ from scripts.vertex import Vertex
 class Graph:
     """Graph class."""
 
-    """Important to know: and the indentation, symbolize that the next line
+    """
+    Important to know: and the indentation, symbolize that the next line
     is part of the line above it, this occurs because the line acquired more
-    than 80 characters."""
+    than 80 characters.
+    """
 
     def __init__(self, verbose=None, directed=None):
         """Initialize the graph and its type."""
@@ -357,7 +359,7 @@ class Graph:
                 low[u] = min(low[u], disc[v])
 
         # head node found, pop the stack and print an SCC
-        w = -1 #To store stack extracted vertices
+        w = -1  # To store stack extracted vertices
         if low[u] == disc[u]:
             while w != u:
                 w = st.pop()
@@ -377,7 +379,7 @@ class Graph:
         disc = [-1] * len(self.adjacency_list)
         low = [-1] * len(self.adjacency_list)
         stackMember = [False] * len(self.adjacency_list)
-        st =[]
+        st = []
 
         global time
         time = 0
