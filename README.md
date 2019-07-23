@@ -9,7 +9,7 @@ This is a project at my university in the graphs discipline, the project is an g
 
 This project is compatible with python3.6
 
-## What was implemented
+## Features
 Currently, this project has these graphs methods:
 
 -   Directed Matrix
@@ -89,6 +89,9 @@ To run the unit test ```pytest test/test_core.py```.
 
 ### How to run coverage
 To run the coverage ```coverage run -m pytest``` this will generate a .coverage file, then run ```coverage report```.
+
+## Code Of Conduct
+Everyone interacting in the API Graph project's codebases is expected to follow the [code of conduct](https://github.com/wagnernegrao/API-Graph/blob/master/CODE_OF_CONDUCT.md).
 
 ## How contribuit
 If you want to contribute to adding other features, follow the instruction in [contributing](https://github.com/wagnernegrao/API-Graph/blob/master/CONTRIBUTING.md).
