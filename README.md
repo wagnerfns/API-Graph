@@ -91,6 +91,7 @@ To run the unit test ```pytest test/test_core.py```.
 To run the coverage ```coverage run -m pytest``` this will generate a .coverage file, then run ```coverage report```.
 
 ## How contribuit
+If you want to contribute to adding other features, follow the instruction in [contributing](https://github.com/wagnernegrao/API-Graph/blob/master/CONTRIBUTING.md).
 
 ## Licence
 GPLv3
