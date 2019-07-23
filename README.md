@@ -1,11 +1,11 @@
-# API GRAPH
+# GRAPHY
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e29fdd951b1845f39e98daffe6cbf32a)](https://www.codacy.com/app/wagnerfns/API-Graph?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=wagnerfns/API-Graph&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/wagnernegrao/API-Graph.svg?branch=master)](https://travis-ci.org/wagnernegrao/API-Graph)
 [![codecov](https://codecov.io/gh/wagnernegrao/API-Graph/branch/master/graph/badge.svg)](https://codecov.io/gh/wagnernegrao/API-Graph)
 [![](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/download/releases/3.5.0/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-This is a project at my university in the graphs discipline, the project is an graphs API, for using graphs functions using python.
+This is a project at my university in the graphs discipline, the project graphy is used for graphs functions using python.
 
 This project is compatible with python3.6
 
@@ -91,10 +91,10 @@ To run the unit test ```pytest test/test_core.py```.
 To run the coverage ```coverage run -m pytest``` this will generate a .coverage file, then run ```coverage report```.
 
 ## Code Of Conduct
-Everyone interacting in the API Graph project's codebases is expected to follow the [code of conduct](https://github.com/wagnernegrao/API-Graph/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the graphy project's codebases is expected to follow the [code of conduct](https://github.com/wagnernegrao/graphy/blob/master/CODE_OF_CONDUCT.md).
 
 ## How contribuit
-If you want to contribute to adding other features, follow the instruction in [contributing](https://github.com/wagnernegrao/API-Graph/blob/master/CONTRIBUTING.md).
+If you want to contribute to adding other features, follow the instruction in [contributing](https://github.com/wagnernegrao/graphy/blob/master/CONTRIBUTING.md).
 
 ## Licence
 GPLv3
