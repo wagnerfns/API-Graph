@@ -1,6 +1,6 @@
 # GRAPHY
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e29fdd951b1845f39e98daffe6cbf32a)](https://www.codacy.com/app/wagnerfns/API-Graph?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=wagnerfns/API-Graph&amp;utm_campaign=Badge_Grade)
-[![Build Status](https://travis-ci.org/wagnernegrao/API-Graph.svg?branch=master)](https://travis-ci.org/wagnernegrao/API-Graph)
+[![Build Status](https://travis-ci.org/wagnernegrao/graphy.svg?branch=master)](https://travis-ci.org/wagnernegrao/graphy)
 [![codecov](https://codecov.io/gh/wagnernegrao/API-Graph/branch/master/graph/badge.svg)](https://codecov.io/gh/wagnernegrao/API-Graph)
 [![](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/download/releases/3.5.0/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
