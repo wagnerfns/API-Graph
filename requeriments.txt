@@ -1,5 +1,5 @@
-numpy
 pytest
+numpy
 unittest2
 coverage
 codecov
