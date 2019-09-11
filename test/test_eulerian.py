@@ -3,7 +3,7 @@ from scripts.graph import Graph
 from scripts.vertex import Vertex
 
 
-class TestMethods(unittest.TestCase):
+class TestEulerian(unittest.TestCase):
     """Create Test."""
 
     def test_eulerian_array(self):
@@ -17,7 +17,7 @@ class TestMethods(unittest.TestCase):
         graph.add_edge(a, a)
         graph.add_edge(b, b)
         graph.add_edge(a, b)
-        self.assertEqual(graph.eulerian(), "Is Eulerian", msg='Teste 7')
+        self.assertEqual(graph.eulerian(), "Is Eulerian", msg='Teste 1')
 
     def test_eulerian_array_open(self):
         """Test eulerian array open."""
@@ -44,7 +44,7 @@ class TestMethods(unittest.TestCase):
         graph.add_edge(d, e)
         graph.add_edge(d, f)
         graph.add_edge(e, f)
-        self.assertEqual(graph.eulerian(), "Eulerian open", msg='Teste 8')
+        self.assertEqual(graph.eulerian(), "Eulerian open", msg='Teste 2')
 
     def test_not_eulerian_array(self):
         """Test not eulerian array."""
@@ -59,4 +59,4 @@ class TestMethods(unittest.TestCase):
         graph.add_edge(a, a)
         graph.add_edge(a, b)
 
-        self.assertEqual(graph.eulerian(), "Not is eulerian", msg='Teste 9')
+        self.assertEqual(graph.eulerian(), "Not is eulerian", msg='Teste 3')
