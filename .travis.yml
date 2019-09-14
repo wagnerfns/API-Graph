@@ -2,7 +2,9 @@ language: python
 
 # run python
 python:
+ - "3.5"
  - "3.6"
+ - "3.7"
 
 sudo: required
 
@@ -13,7 +15,7 @@ install:
 # run tests
 script:
  #- coverage run -m pytest
- - coverage run -m pytest test/test_core.py
+ - coverage run -m pytest test/test_*.py
  #- coverage run --source=src/graph setup.py test
  #- coverage report
  
