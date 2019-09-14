@@ -5,7 +5,7 @@ from scripts.vertex import Vertex
 """Test."""
 
 
-class TestMethods(unittest.TestCase):
+class TestList(unittest.TestCase):
     """Create Test."""
 
     def test_add_vertex_list_directed(self):
@@ -29,3 +29,6 @@ class TestMethods(unittest.TestCase):
         graph.add_edge(a, a)
         graph.add_edge(b, b)
         self.assertEqual(graph.add_edge(a, b), True, msg='Teste 2')
+
+if __name__ == '__main__':
+    unittest.main()
