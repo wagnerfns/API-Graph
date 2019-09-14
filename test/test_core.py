@@ -8,29 +8,6 @@ from scripts.vertex import Vertex
 class TestMethods(unittest.TestCase):
     """Create Test."""
 
-    def test_search_vertex_array_not_directed(self):
-        """Test search vertex array not directed."""
-        graph = Graph(True, False)
-        a = Vertex(0)
-        b = Vertex(1)
-        graph.add_vertex(a)
-        graph.add_vertex(b)
-        graph.create_array()
-        graph.add_edge(a, a)
-        graph.add_edge(a, b)
-        self.assertEqual(graph.search_vertex(a), [0, 1], msg='Teste 5')
-
-    def test_search_vertex_list_not_directed(self):
-        """Test search vertex list not directed."""
-        graph = Graph(False, False)
-        a = Vertex(0)
-        b = Vertex(1)
-        graph.add_vertex(a)
-        graph.add_vertex(b)
-        graph.add_edge(a, a)
-        graph.add_edge(a, b)
-        self.assertEqual(graph.search_vertex(a), [0, 1], msg='Teste 6')
-        
     def test_bfs_list_not_directed(self):
         """Test bfs list not directed."""
         graph = Graph(False, False)  # list adjacency not directed
