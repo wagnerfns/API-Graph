@@ -18,7 +18,7 @@ class TestList(unittest.TestCase):
         graph.add_edge(a, a)
         graph.add_edge(b, b)
         self.assertEqual(graph.add_edge(a, b), True, msg='Teste 1')
-    
+
     def test_add_vertex_list_not_directed(self):
         """Test add vertex list not directed."""
         graph = Graph(False, False)
@@ -29,6 +29,7 @@ class TestList(unittest.TestCase):
         graph.add_edge(a, a)
         graph.add_edge(b, b)
         self.assertEqual(graph.add_edge(a, b), True, msg='Teste 2')
+
 
 if __name__ == '__main__':
     unittest.main()
