@@ -60,3 +60,6 @@ class TestEulerian(unittest.TestCase):
         graph.add_edge(a, b)
 
         self.assertEqual(graph.eulerian(), "Not is eulerian", msg='Teste 3')
+
+if __name__ == '__main__':
+    unittest.main()
