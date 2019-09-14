@@ -61,5 +61,6 @@ class TestEulerian(unittest.TestCase):
 
         self.assertEqual(graph.eulerian(), "Not is eulerian", msg='Teste 3')
 
+
 if __name__ == '__main__':
     unittest.main()
