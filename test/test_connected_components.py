@@ -30,7 +30,7 @@ class TestConnectedComponents(unittest.TestCase):
         graph.add_edge(c, d)
         graph.add_edge(d, e)
 
-        self.assertEqual(graph.connected_components(), True, msg='Teste 12')
+        self.assertEqual(graph.connected_components(), True, msg='Teste 1')
 
 
 if __name__ == '__main__':

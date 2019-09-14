@@ -27,7 +27,7 @@ class TestTransitiveClosing(unittest.TestCase):
         graph.add_edge(b, c)
         graph.add_edge(c, d)
 
-        self.assertEqual(graph.transitive_closing(), True, msg='Teste 13')
+        self.assertEqual(graph.transitive_closing(), True, msg='Teste 1')
 
     def test_transitive_closing_array_not_directed(self):
         """Test."""
@@ -48,7 +48,7 @@ class TestTransitiveClosing(unittest.TestCase):
         graph.add_edge(b, c)
         graph.add_edge(c, d)
 
-        self.assertEqual(graph.transitive_closing(), False, msg='Teste 14')
+        self.assertEqual(graph.transitive_closing(), False, msg='Teste 2')
 
 
 if __name__ == '__main__':

@@ -41,7 +41,7 @@ class TestDFS(unittest.TestCase):
         graph.add_edge(f, g)
         graph.add_edge(g, h)
 
-        self.assertEqual(graph.dfs(e), 17, msg='Teste 11')
+        self.assertEqual(graph.dfs(e), 17, msg='Teste 1')
 
 
 if __name__ == '__main__':
