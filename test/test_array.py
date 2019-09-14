@@ -32,5 +32,6 @@ class TestArray(unittest.TestCase):
         graph.add_edge(b, b)
         self.assertEqual(graph.add_edge(a, b), True, msg='Teste 2')
 
+
 if __name__ == '__main__':
     unittest.main()
