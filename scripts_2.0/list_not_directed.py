@@ -2,6 +2,7 @@ from graph_abc import AbsStrategy
 
 
 class ListNotDirected(AbsStrategy):
+    """List not directed"""
 
     def directed(self):
         return(False)
