@@ -2,11 +2,15 @@ from abc import ABCMeta, abstractclassmethod
 
 
 class AbsStrategy(object):
+    '''
+    This class is interfacing to the graph. This class is using the strategy
+    pattern to implement all the graph type.
+    '''
     __metaclass__ = ABCMeta
 
     @abstractclassmethod
     def directed(self):
-        """Create graph"""
+        """Return if is directed or not"""
     @abstractclassmethod
-    def adj_type(self):
-        """Create graph"""
+    def graph_type(self):
+        """Return if is array or list"""
