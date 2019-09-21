@@ -1,6 +1,6 @@
 from graphy import Graphy
 from graph_directed import GraphDirected
-from graph_o import Graph
+from graph import Graph
 
 
 graph = GraphDirected()
